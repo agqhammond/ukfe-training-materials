@@ -18,7 +18,15 @@ resources:
 
 ## Introduction {#intro}
 
-This training material covers the functionality in the UKFE R package. It is an interactive document where you can run the code yourself and there are some exercises where you have to fill in the gaps. **You must have solved and run the code for each exercise in order for the following linked exercises to work.** Note that answers appear below the code. If there are multiple parts of the code that get written out, then the order of the results is the same as the order of the code.
+This training material covers the functionality in the UKFE R package. It is an interactive document where you can run the code yourself and there are some exercises where you have to fill in the gaps.
+
+To fully complete this training, you must have access to RStudio (or another suitable R environment). Some functionality cannot run in this interactive platform alone. Note that you need to install R before installing RStudio.
+
+-   Download R: <https://cran.r-project.org/>
+
+-   Download RStudio: <https://posit.co/download/rstudio-desktop/>
+
+**You must have solved and run the code for each exercise in order for the following linked exercises to work.** Note that answers appear below the code. If there are multiple parts of the code that get written out, then the order of the results is the same as the order of the code.
 
 Some functions within the UKFE package require internet access to perform API (application programming interface) calls to external websites in order to retrieve data. This functionality is not always available within this interactive document. However, we have included these exercises so that you can run them in your own R environment, where they should operate as intended.
 
@@ -29,7 +37,7 @@ These exercises have been developed for the purposes of the training and code is
 Before doing any analysis, you need to install the `UKFE` package. This only needs doing once (it will need redoing if the UKFE package is updated or if you update your version of R).
 
 ```{r, eval = FALSE}
-install.packages(UKFE)
+install.packages("UKFE")
 ```
 
 Once you have installed the package, this will be saved in your package library. Every time you want to use the package, you need to load it from the library using the following code:
@@ -261,6 +269,8 @@ You can find out more about a dataset using its help file, which can be accessed
 ```{r, eval = FALSE}
 ?AMSP
 ```
+
+Alternatively, you can view the package documentation on CRAN: <https://cran.r-project.org/web/packages/UKFE/UKFE.pdf>
 
 ### Exercise to explore NRFA Data {#nrfadata}
 
@@ -2901,7 +2911,9 @@ These parameters can then be used to estimate quantiles or return periods. This 
 ```{webr}
 #| envir: ukfe_traing_env
 # Estimate the 50-year return period flow for this sample data using the 
-# generalised logistic distribution
+# generalised logistic distribution (genlog_pars_2001_MLE is first converted 
+# to a numeric vector to remove incorrect labels from the outputs)
+genlog_pars_2001_MLE <- as.numeric(genlog_pars_2001_MLE)
 GenLogEst(loc = genlog_pars_2001_MLE[1], scale = genlog_pars_2001_MLE[2], 
           shape = genlog_pars_2001_MLE[3], RP = 50)
 
@@ -2941,6 +2953,7 @@ gev_pars_27028
 
 # Estimate the 100-year return period flow for this sample data using the 
 # GEV distribution
+gev_pars_27028 <- as.numeric(gev_pars_27028)
 GEVEst(loc = gev_pars_27028[1], scale = gev_pars_27028[2], 
           shape = gev_pars_27028[3], ______ = _______)
 ```
@@ -2962,6 +2975,7 @@ gev_pars_27028
 
 # Estimate the 100-year return period flow for this sample data using the 
 # GEV distribution
+gev_pars_27028 <- as.numeric(gev_pars_27028)
 GEVEst(loc = gev_pars_27028[1], scale = gev_pars_27028[2], 
           shape = gev_pars_27028[3], RP = _______)
 ```
@@ -2984,6 +2998,7 @@ gev_pars_27028
 
 # Estimate the 100-year return period flow for this sample data using the 
 # GEV distribution
+gev_pars_27028 <- as.numeric(gev_pars_27028)
 GEVEst(loc = gev_pars_27028[1], scale = gev_pars_27028[2], 
           shape = gev_pars_27028[3], RP = 100)
 ```
