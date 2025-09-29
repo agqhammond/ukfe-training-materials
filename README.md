@@ -1,20 +1,17 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# UKFE training material
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+This training material covers the functionality in the UKFE R package. It is an interactive document where you can run the code yourself and there are some exercises where you have to fill in the gaps. 
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Before doing any analysis, you need to install the `UKFE` package. This only needs doing once (it will need redoing if the UKFE package is updated or if you update your version of R).
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+```{r, eval = FALSE}
+install.packages(UKFE)
+```
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Once you have installed the package, this will be saved in your package library. Every time you want to use the package, you need to load it from the library using the following code:
+
+```{r, eval = FALSE}
+library(UKFE)
+```
+
+This will allow you to use the functions within the package.
