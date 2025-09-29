@@ -20,7 +20,7 @@ resources:
 
 This training material covers the functionality in the UKFE R package. It is an interactive document where you can run the code yourself and there are some exercises where you have to fill in the gaps.
 
-To fully complete this training, you must have access to RStudio (or another suitable R environment). Some functionality cannot run in this interactive platform alone.
+To fully complete this training, you must have access to RStudio (or another suitable R environment). Some functionality cannot run in this interactive platform alone. Note that you need to install R before installing RStudio.
 
 -   Download R: <https://cran.r-project.org/>
 
@@ -2911,7 +2911,8 @@ These parameters can then be used to estimate quantiles or return periods. This 
 ```{webr}
 #| envir: ukfe_traing_env
 # Estimate the 50-year return period flow for this sample data using the 
-# generalised logistic distribution
+# generalised logistic distribution (genlog_pars_2001_MLE is first converted 
+# to a numeric vector to remove incorrect labels from the outputs)
 genlog_pars_2001_MLE <- as.numeric(genlog_pars_2001_MLE)
 GenLogEst(loc = genlog_pars_2001_MLE[1], scale = genlog_pars_2001_MLE[2], 
           shape = genlog_pars_2001_MLE[3], RP = 50)
@@ -2947,11 +2948,12 @@ flow_27028 <- am_27028$______
 
 # Estimate the GEV parameters from sample data 
 # (do not use maximum likelihood estimation)
-gev_pars_27028 <- as.numeric(GEVPars(flow_27028, _______ = _______))
+gev_pars_27028 <- GEVPars(flow_27028, _______ = _______)
 gev_pars_27028
 
 # Estimate the 100-year return period flow for this sample data using the 
 # GEV distribution
+gev_pars_27028 <- as.numeric(gev_pars_27028)
 GEVEst(loc = gev_pars_27028[1], scale = gev_pars_27028[2], 
           shape = gev_pars_27028[3], ______ = _______)
 ```
@@ -2968,11 +2970,12 @@ flow_27028 <- am_27028$______
 
 # Estimate the GEV parameters from sample data 
 # (do not use maximum likelihood estimation)
-gev_pars_27028 <- as.numeric(GEVPars(flow_27028, mle = _______))
+gev_pars_27028 <- GEVPars(flow_27028, mle = _______)
 gev_pars_27028
 
 # Estimate the 100-year return period flow for this sample data using the 
 # GEV distribution
+gev_pars_27028 <- as.numeric(gev_pars_27028)
 GEVEst(loc = gev_pars_27028[1], scale = gev_pars_27028[2], 
           shape = gev_pars_27028[3], RP = _______)
 ```
@@ -2990,11 +2993,12 @@ flow_27028 <- am_27028$Flow
 
 # Estimate the GEV parameters from sample data 
 # (do not use maximum likelihood estimation)
-gev_pars_27028 <- as.numeric(GEVPars(flow_27028, mle = FALSE))
+gev_pars_27028 <- GEVPars(flow_27028, mle = FALSE)
 gev_pars_27028
 
 # Estimate the 100-year return period flow for this sample data using the 
 # GEV distribution
+gev_pars_27028 <- as.numeric(gev_pars_27028)
 GEVEst(loc = gev_pars_27028[1], scale = gev_pars_27028[2], 
           shape = gev_pars_27028[3], RP = 100)
 ```
