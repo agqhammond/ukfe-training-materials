@@ -4,7 +4,7 @@ project:
 website:
   title: "UKFE training materials"
   description: "Training materials"
-  repo-url: https://matthew-stapleton-jba.github.io/ukfe-docs-review/
+  repo-url: https://github.com/agqhammond/ukfe-training-materials
   repo-actions: [edit, issue]
   repo-subdir: "docs"
   page-navigation: true
